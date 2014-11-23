@@ -1,0 +1,22 @@
+{
+  "name": "location-init",
+  "version": "0.0.1",
+  "description": "SImple js browser router",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://tbleckert@github.com/tbleckert/location-init.git"
+  },
+  "keywords": [
+    "router",
+    "js",
+    "simple",
+    "history"
+  ],
+  "author": "Tobias Bleckert <me@tb-one.se> (http://tb-one.se/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tbleckert/location-init/issues"
+  },
+  "homepage": "https://github.com/tbleckert/location-init"
+}
