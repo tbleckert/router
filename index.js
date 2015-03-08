@@ -28,6 +28,7 @@
 		}
 
 		module = function (base, routes) {
+			base || (base = '/');
 
 			this.base = _prepareRoute(base);
 			this.isWatching = false;
@@ -63,7 +64,7 @@
 					if (_routes.hasOwnProperty(regexText)) {
 						callback = _routes[regexText];
 						regex    = new RegExp(regexText);
-						path     = window.location.pathname;
+						path     = _prepareRoute(window.location.pathname);
 
 						if (regex.test(path)) {
 							callback.call(false, regexText, path, event);
