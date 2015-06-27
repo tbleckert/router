@@ -15,7 +15,7 @@
 			if (str.substr(-1) == '/') {
 				return str.substr(0, str.length - 1);
 			}
-		
+
 			return str;
 		}
 
@@ -31,13 +31,11 @@
 			base || (base = '/');
 
 			this.base = _prepareRoute(base);
-			this.isWatching = false;
-			
+
 			if (typeof routes === 'object') {
 				_routes = routes;
 
-				this.watch();
-				this.isWatching = true;
+				this.dispatch();
 			}
 
 		};
@@ -71,25 +69,6 @@
 						}
 					}
 				}
-			},
-
-			watch: function () {
-				if (this.isWatching) {
-					return true;
-				}
-
-				this.isWatching = true;
-
-				var _this = this;
-
-				/** Check current location */
-				this.dispatch();
-
-				/** If popstate exists, listen to it */
-				window.addEventListener('popstate', function (event) {
-					console.log(location.pathname);
-					_this.dispatch(event);
-				});
 			}
 
 		};

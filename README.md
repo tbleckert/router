@@ -1,11 +1,12 @@
-location-init
+Location Init
 =============
+_0.5kb minified and gzipped_
 
-Simple js browser router. This is not an ajax library or does not handle navigation. It simply register routes with callbacks. It checks first location and then listens to the [popstate](https://developer.mozilla.org/en-US/docs/WindowEventHandlers.onpopstate) event. You need to manually trigger the router when you use the pushState or replaceState (since there's no native events for these actions).
+Sometimes you just want to trigger something on a certain page, location-init is perfect for that. Think of it as a callback to normal page requests. No magic, just simple route callbacks that triggers on page requests. Of course you can also trigger the route dispatcher manually whenever you want, for example on pushstate, but it's not handled automatically.
 
 ## Install
 
-Download index.js or install with npm (`npm install location-init`).
+Download dist/build.min.js or install with npm (`npm install location-init`).
 
 ## Usage
 
@@ -24,7 +25,7 @@ You can also create the router with a base url (will be prepended on all routes)
     	}
     });
 
-When passing routes the router will start watching the location automatically, otherwise you need to call `watch` yourself. This is how you setup a route:
+You can also add routes after init and call `dispatch` manually. This is how you add routes:
 
     router.on('/profile', function (route, path, event) {
 
@@ -38,4 +39,4 @@ When passing routes the router will start watching the location automatically, o
 
     });
 
-After you've setup your routes call `router.watch()` to trigger any route callback that matches the current location and to start watching the `popstate` event. When you navigate with `pushState` or `replaceState` you need to call `router.dispatch()`. You can also build a wrapper to those actions that automatically always calls the `dispatch` method on the router.
+    router.dispatch();

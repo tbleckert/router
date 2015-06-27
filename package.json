@@ -1,8 +1,11 @@
 {
   "name": "location-init",
-  "version": "0.0.2",
-  "description": "SImple js browser router",
+  "version": "0.0.3",
+  "description": "Simple route callbacks",
   "main": "index.js",
+  "scripts": {
+    "build": "uglifyjs index.js -o dist/build.min.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://tbleckert@github.com/tbleckert/location-init.git"
@@ -18,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/tbleckert/location-init/issues"
   },
-  "homepage": "https://github.com/tbleckert/location-init"
+  "homepage": "https://github.com/tbleckert/location-init",
+  "devDependencies": {
+    "uglify-js": "^2.4.23"
+  }
 }
