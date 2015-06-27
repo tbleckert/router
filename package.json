@@ -14,7 +14,9 @@
     "router",
     "js",
     "simple",
-    "history"
+    "callback",
+    "init",
+    "small"
   ],
   "author": "Tobias Bleckert <me@tb-one.se> (http://tb-one.se/)",
   "license": "MIT",
