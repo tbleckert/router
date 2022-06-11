@@ -18,17 +18,11 @@ function prepareRoute(route) {
 }
 
 export default class Router {
-    routes = {};
-    base = '/';
-
-    constructor(base = '/', routes = null) {
+    constructor(base = '/', routes = {}) {
         this.base = base;
+        this.routes = routes;
 
-        if (routes) {
-            this.routes = routes;
-
-            this.dispatch();
-        }
+        this.dispatch();
     }
 
     on(route, cb) {

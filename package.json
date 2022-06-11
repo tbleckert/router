@@ -4,12 +4,20 @@
     "description": "Simple route callbacks",
     "source": "index.js",
     "main": "dist/main.js",
-    "type": "module",
+    "module": "dist/module.js",
+    "sideEffects": false,
     "scripts": {
         "start": "parcel example/index.html",
         "watch": "parcel watch",
-        "build": "parcel build"
+        "build": "parcel build",
+        "size": "size-limit"
     },
+    "size-limit": [
+        {
+            "path": "dist/main.js",
+            "limit": "0.5 kB"
+        }
+    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/tbleckert/location-init.git"
@@ -29,8 +37,10 @@
     },
     "homepage": "https://github.com/tbleckert/location-init",
     "devDependencies": {
+        "@size-limit/preset-small-lib": "^7.0.8",
         "ava": "^4.3.0",
         "parcel": "^2.6.0",
-        "prettier": "^2.6.2"
+        "prettier": "^2.6.2",
+        "size-limit": "^7.0.8"
     }
 }

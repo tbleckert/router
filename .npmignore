@@ -1,4 +1,6 @@
 *
 !dist/main.js
 !dist/main.js.map
+!dist/module.js
+!dist/module.js.map
 !package.json
