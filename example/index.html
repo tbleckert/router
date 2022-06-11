@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Example</title>
+    </head>
+    <body>
+        <nav>
+            <a href="/">Go home</a>
+            <a href="/test">Go to test</a>
+            <a href="/profile">Go to profile</a>
+        </nav>
+        <div id="app"></div>
+        <script type="module">
+            import Router from "../index.js";
+
+            const app = document.getElementById('app');
+            const router = new Router('/', {
+                '': () => {
+                    app.innerHTML = 'You are home';
+                },
+
+                test() {
+                    app.innerHTML = 'Navigated to <strong>test</strong>';
+                },
+
+                profile() {
+                    app.innerHTML = 'Navigated to <strong>profile</strong>';
+                }
+            });
+
+            document.addEventListener('click', (e) => {
+                const link = e.target.closest('a');
+
+                if (link) {
+                    e.preventDefault();
+
+                    history.pushState({}, '', link.href);
+                    router.dispatch();
+                }
+            });
+
+            window.addEventListener('popstate', () => {
+                router.dispatch();
+            });
+        </script>
+    </body>
+</html>

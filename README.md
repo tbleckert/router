@@ -12,30 +12,30 @@ Download dist/build.min.js or install with npm (`npm install location-init`).
 
 Simply create a new router like this:
 
-    var router = new router();
+    const router = new Router();
 
 You can also create the router with a base url (will be prepended on all routes) and/or a routes object.
 
-    var router = new router('/user', {
-    	'profile': function (route, path) {
+    const router = new Router('/user', {
+    	profile(route, path) {
 
     	},
-    	'settings': function (route, path) {
+    	settings(route, path) {
 
     	}
     });
 
 You can also add routes after init and call `dispatch` manually. This is how you add routes:
 
-    router.on('/profile', function (route, path, event) {
+    router.on('/profile', (route, path, event) => {
 
     });
 
-    router.on('/splat/*', function (route, path, event) {
+    router.on('/splat/*', (route, path, event) => {
 
     });
 
-    router.on('/named/:id', function (route, path, event) {
+    router.on('/named/:id', (route, path, event) => {
 
     });
 

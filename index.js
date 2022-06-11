@@ -1,86 +1,58 @@
-(function () {
+const namedParam = /:\w+/g;
+const splatParam = /\*\w+/g;
 
-	'use strict';
+function stripTrailingSlash (str) {
+    if (str.slice(-1) === '/') {
+        return str.substring(0, str.length - 1);
+    }
 
-	var router = (function () {
+    return str;
+}
 
-		var _routes = {},
-		    _namedParam = /:\w+/g,
-		    _splatParam = /\*\w+/g,
-		    _prepareRoute,
-		    _stripTrailingSlash,
-		    module;
+function prepareRoute(route) {
+    if (!route) {
+        return null;
+    }
 
-		_stripTrailingSlash = function (str) {
-			if (str.substr(-1) == '/') {
-				return str.substr(0, str.length - 1);
-			}
+    return stripTrailingSlash(route).replace(namedParam, '([^\/]+)').replace(splatParam, '(.*?)');
+}
 
-			return str;
-		}
+export default class Router {
+    routes = {};
+    base = '/';
 
-		_prepareRoute = function (route) {
-			if (!route) {
-				return null;
-			}
+    constructor(base = '/', routes = null) {
+        this.base = base;
 
-			return _stripTrailingSlash(route).replace(_namedParam, '([^\/]+)').replace(_splatParam, '(.*?)');
-		}
+        if (routes) {
+            this.routes = routes;
 
-		module = function (base, routes) {
-			base || (base = '/');
+            this.dispatch();
+        }
+    }
 
-			this.base = _prepareRoute(base);
+    on(route, cb) {
+        if (!route || !cb) {
+            throw new Error('A route and a callback needs to be defined');
+        }
 
-			if (typeof routes === 'object') {
-				_routes = routes;
+        const formattedRoute = `^${this.base}${prepareRoute(route)}$`;
 
-				this.dispatch();
-			}
+        this.routes[formattedRoute] = cb;
 
-		};
+        return formattedRoute;
+    }
 
-		module.prototype = {
+    dispatchRoute(route, cb) {
+        const regex = new RegExp(route);
+        const path = prepareRoute(window.location.pathname);
 
-			on: function (route, callback) {
-				if (!route) {
-					throw new Error('A route needs to be defined');
-				}
+        if (regex.test(path)) {
+            cb.call(false, route, path);
+        }
+    }
 
-				callback || (callback = function () {});
-
-				route = this.base + _prepareRoute(route);
-
-				_routes['^' + route + '$'] = callback;
-				return route;
-			},
-
-			dispatch: function (event) {
-				var regex, regexText, callback, path;
-
-				for (regexText in _routes) {
-					if (_routes.hasOwnProperty(regexText)) {
-						callback = _routes[regexText];
-						regex    = new RegExp(regexText);
-						path     = _prepareRoute(window.location.pathname);
-
-						if (regex.test(path)) {
-							callback.call(false, regexText, path, event);
-						}
-					}
-				}
-			}
-
-		};
-
-		return module;
-
-	}());
-
-	if (typeof module !== 'undefined' && module.exports) {
-		module.exports = router;
-	} else if (typeof this !== 'undefined') {
-		this.router = router;
-	}
-
-}).call(this);
+    dispatch() {
+        Object.entries(this.routes).forEach(([route, cb]) => this.dispatchRoute(route, cb));
+    }
+}

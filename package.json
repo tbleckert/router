@@ -1,30 +1,36 @@
 {
-  "name": "location-init",
-  "version": "0.0.4",
-  "description": "Simple route callbacks",
-  "main": "index.js",
-  "scripts": {
-    "build": "uglifyjs index.js -o dist/build.min.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://tbleckert@github.com/tbleckert/location-init.git"
-  },
-  "keywords": [
-    "router",
-    "js",
-    "simple",
-    "callback",
-    "init",
-    "small"
-  ],
-  "author": "Tobias Bleckert <hola@tobiasbleckert.se> (http://tobiasbleckert.se/)",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/tbleckert/location-init/issues"
-  },
-  "homepage": "https://github.com/tbleckert/location-init",
-  "devDependencies": {
-    "uglify-js": "^2.4.23"
-  }
+    "name": "location-init",
+    "version": "0.0.4",
+    "description": "Simple route callbacks",
+    "source": "index.js",
+    "main": "dist/main.js",
+    "type": "module",
+    "scripts": {
+        "start": "parcel example/index.html",
+        "watch": "parcel watch",
+        "build": "parcel build"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/tbleckert/location-init.git"
+    },
+    "keywords": [
+        "router",
+        "js",
+        "simple",
+        "callback",
+        "init",
+        "small"
+    ],
+    "author": "Tobias Bleckert <hola@tobiasbleckert.se> (https://tobiasbleckert.se/)",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/tbleckert/location-init/issues"
+    },
+    "homepage": "https://github.com/tbleckert/location-init",
+    "devDependencies": {
+        "ava": "^4.3.0",
+        "parcel": "^2.6.0",
+        "prettier": "^2.6.2"
+    }
 }
