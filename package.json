@@ -1,6 +1,6 @@
 {
     "name": "location-init",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "Simple route callbacks",
     "source": "index.js",
     "type": "module",
