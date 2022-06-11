@@ -3,7 +3,7 @@
     "version": "0.1.1",
     "description": "Simple route callbacks",
     "source": "index.js",
-    "main": "dist/main.js",
+    "type": "module",
     "module": "dist/module.js",
     "sideEffects": false,
     "scripts": {
@@ -14,7 +14,7 @@
     },
     "size-limit": [
         {
-            "path": "dist/main.js",
+            "path": "dist/module.js",
             "limit": "0.5 kB"
         }
     ],
