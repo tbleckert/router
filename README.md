@@ -1,12 +1,10 @@
-Location Init
+Router
 =============
 _<0.5kb minified and gzipped_
 
-Sometimes you just want to trigger something on a certain page, location-init is perfect for that. Think of it as a callback to normal page requests. No magic, just simple route callbacks that triggers on page requests. Of course you can also trigger the route dispatcher manually whenever you want, for example on popstate, but it's not handled automatically.
-
 ## Install
 
-Download dist/build.min.js or install with npm (`npm install location-init`).
+Download dist/module.js or install with npm (`npm install @bleckert/router`).
 
 ## Usage
 
