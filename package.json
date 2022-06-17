@@ -21,7 +21,7 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/tbleckert/location-init.git"
+        "url": "https://github.com/tbleckert/router.git"
     },
     "keywords": [
         "router",
@@ -34,9 +34,9 @@
     "author": "Tobias Bleckert <hola@tobiasbleckert.se> (https://tobiasbleckert.se/)",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/tbleckert/location-init/issues"
+        "url": "https://github.com/tbleckert/router/issues"
     },
-    "homepage": "https://github.com/tbleckert/location-init",
+    "homepage": "https://github.com/tbleckert/router",
     "devDependencies": {
         "@size-limit/preset-small-lib": "^7.0.8",
         "ava": "^4.3.0",
