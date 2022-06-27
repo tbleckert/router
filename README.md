@@ -1,6 +1,24 @@
-Router
-=============
-_<0.5kb minified and gzipped_
+<h1 align="center">
+  Simple router
+</h1>
+
+<h6 align="center">
+  <a href="https://github.com/tbleckert/router#install">Install</a>
+  ·
+  <a href="https://github.com/tbleckert/router#usage">Usage</a>
+</h6>
+
+<p align="center">
+    <a href="https://www.npmjs.com/package/@bleckert/router">
+        <img src="https://img.shields.io/npm/v/@bleckert/router?style=for-the-badge" alt="NPM" />
+    </a>
+    <a href="https://bundlephobia.com/result?p=@bleckert/router">
+        <img src="https://img.shields.io/bundlephobia/minzip/@bleckert/router?style=for-the-badge" />
+    </a>
+    <a href="https://github.com/sponsors/tbleckert">
+        <img src="https://img.shields.io/badge/GitHub-donate-yellow?style=for-the-badge" />
+    </a>
+</p>
 
 ## Install
 
