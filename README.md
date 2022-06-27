@@ -22,7 +22,7 @@
 
 ## Install
 
-Download dist/module.js or install with npm (`npm install @bleckert/router`).
+Import directly from a CDN (for example `import Router from 'https://esm.sh/@bleckert/router'`) or install from npm (`npm install @bleckert/router`).
 
 ## Usage
 
